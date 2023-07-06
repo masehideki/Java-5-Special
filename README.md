@@ -59,22 +59,42 @@ http://example.com/path/param1/param2?query=param3
 Webコンテンツの伝送を行うHTTP（Hypertext Transfer Protocol）で、クライアントからサーバへ要求を伝えるメッセージのこと。
 送信してほしいファイルなどを指示する。
 - リクエスト行（メソッド、URI、HTTPバージョン）
+~~~
+POST /search.html HTTP/1.1\r\n
+~~~
 - ヘッダー
 - ボディ
 
 ### リクエストヘッダー
 HTTPリクエストにおいて、クライアントの情報やリクエスト内容を記述する部分
 - フィールド名:内容
-<br>
+~~~
+Host: wa3.i-3-i.info\r\n
+Connection: keep-alive\r\n
+Content-Length: 38\r\n
+Cache-Control: max-age=0\r\n
+Origin: http://wa3.i-3-i.info\r\n
+Upgrade-Insecure-Requests: 1\r\n
+User-Agent: うんちゃら\r\n
+Content-Type: application/x-www-form-urlencoded\r\n
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8\r\n
+Referer: http://wa3.i-3-i.info/index.html\r\n
+Accept-Encoding: gzip, deflate\r\n
+Accept-Language: ja,en-US;q=0.8,en;q=0.6\r\n
+~~~
+
 ### リクエストボディ
 HTTPリクエストにおいて、リクエストの補足情報を記述する部分(POSTメソッドならパラメータなどを記述)
+~~~
+q=test&submitSearch=%E6%A4%9C%E7%B4%A2
+~~~
 
 ## HTTPレスポンス
 HTTPでサーバからクライアントから応答を伝えるメッセージのこと。
 HTTPステータスコードや要求されたファイルの内容などで構成される。
 - ステータス行（ステータスコード）
 ~~~ ステータス行
-POST /index.html HTTP/1.0
+HTTP/1.1 200 OK\r\n
 ~~~
 
 - ヘッダー
@@ -84,19 +104,31 @@ POST /index.html HTTP/1.0
 HTTPレスポンスにおいて、ステータスライン(ステータスコードなどが記述される部分)に書ききれないレスポンス情報が記述される部分
 - フィールド名:内容
 ~~~ レスポンスヘッダー
-Accept: image/gif, image/jpeg, */*
-Accept-Language: ja
-Accept-Encoding: gzip, deflate
-User-Agent: Mozilla/4.0 (Compatible; MSIE 6.0; Windows NT 5.1;)
-Host: www.xxx.zzz
-Connection: Keep-Alive
+Server: nginx\r\n
+Date: Tue, 11 Jul 2017 09:23:07 GMT\r\n
+Content-Type: text/html\r\n
+Transfer-Encoding: chunked\r\n
+Connection: keep-alive\r\n
 ~~~
 
 ### レスポンスボディ
-HTTPレスポンスにおいて、HTMLファイルの中身が記述される部分
-- HTTP形式
+HTTPレスポンスにおいて、ファイルの中身が記述される部分
+- HTML書式
 ~~~ レスポンスボディ
-hoge=piyo&yoshiki=xjapan
+<!DOCTYPE html>\r\n
+<html lang="ja">\r\n
+<head>\r\n
+
+（中略）
+
+</head>\r\n
+<body>\r\n
+
+（中略）
+
+</body>\r\n
+</html>\r\n
+\r\n
 ~~~
 - **JSON形式**
 
