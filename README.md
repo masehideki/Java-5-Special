@@ -115,27 +115,36 @@ Connection: keep-alive\r\n
 HTTPレスポンスにおいて、ファイルの中身が記述される部分
 - HTML書式
 ~~~ レスポンスボディ
-<!DOCTYPE html>\r\n
-<html lang="ja">\r\n
-<head>\r\n
-
-（中略）
-
-</head>\r\n
-<body>\r\n
-
-（中略）
-
-</body>\r\n
-</html>\r\n
-\r\n
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example Page</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>This is an example page.</p>
+</body>
+</html>
+~~~
+- XML書式
+~~~ レスポンスボディ
+<book>
+    <title>Example Book</title>
+    <author>John Smith</author>
+    <year>2023</year>
+</book>
 ~~~
 - **JSON形式**
 
 ### JSON（JavaScript Object Notation）
 データ交換のために設計された軽量なテキスト形式のデータ表現。
+JSを元にして
 ~~~ 
-{ "Hello": "World" }
+{
+  "name": "John Smith",
+  "age": 30,
+  "city": "New York"
+}
 ~~~
 レスポンスボディの形式はリクエストヘッダーの中で変更できる。
 
