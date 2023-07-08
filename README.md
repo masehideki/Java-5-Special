@@ -24,14 +24,14 @@ http://example.com/path/param1/param2?query=param3
 ## HTTPメソッド
 - リソースに対して実行したいアクション。
 
-| HTTPメソッド　　 | MDN表現                             | わわわ表現              |　
-|------------|-----------------------------------|--------------------|
-| GET        | 指定したリソースの表現をリクエスト（データ取り込み限定）。     | ページをくれよ            |
-| HEAD       | GETと同じレスポンスを、レスポンス本文なしで求める。       | ヘッダ情報だけくれ          |
-| POST       | 指定したリソースに実体を送信する。                 | このデータをくれてやるよ       |
-| PUT        | 対象リソースの現在の表現全体をリクエストのペイロードで置き換える。 | このデータ（ファイル）をくれてやるよ |
-| PATCH      | リソースを部分的に変更する。                    | ちょっくらデータの一部を変えさせて  |
-| DELETE     | 指定したリソースを削除する。                    | このデータ消しちゃって        |
+| HTTPメソッド     | MDN表現                             | わわわ表現              |
+|--------------|-----------------------------------|--------------------|
+| GET          | 指定したリソースの表現をリクエスト（データ取り込み限定）。     | ページをくれよ            |
+| HEAD         | GETと同じレスポンスを、レスポンス本文なしで求める。       | ヘッダ情報だけくれ          |
+| POST         | 指定したリソースに実体を送信する。                 | このデータをくれてやるよ       |
+| PUT          | 対象リソースの現在の表現全体をリクエストのペイロードで置き換える。 | このデータ（ファイル）をくれてやるよ |
+| PATCH        | リソースを部分的に変更する。                    | ちょっくらデータの一部を変えさせて  |
+| DELETE       | 指定したリソースを削除する。                    | このデータ消しちゃって        |
 
 参考　https://developer.mozilla.org/ja/docs/Web/HTTP/Methods　<br>
 　　　https://wa3.i-3-i.info/word11405.html
@@ -61,7 +61,7 @@ Webコンテンツの伝送を行うHTTP（Hypertext Transfer Protocol）で、�
 送信してほしいファイルなどを指示する。
 - リクエスト行（メソッド、URI、HTTPバージョン）
 ~~~
-POST /search.html HTTP/1.1\r\n
+POST /search.html HTTP/1.1
 ~~~
 - ヘッダー
 - ボディ
@@ -70,18 +70,18 @@ POST /search.html HTTP/1.1\r\n
 HTTPリクエストにおいて、クライアントの情報やリクエスト内容を記述する部分
 - フィールド名:内容
 ~~~
-Host: wa3.i-3-i.info\r\n
-Connection: keep-alive\r\n
-Content-Length: 38\r\n
-Cache-Control: max-age=0\r\n
-Origin: http://wa3.i-3-i.info\r\n
-Upgrade-Insecure-Requests: 1\r\n
-User-Agent: うんちゃら\r\n
-Content-Type: application/x-www-form-urlencoded\r\n
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8\r\n
-Referer: http://wa3.i-3-i.info/index.html\r\n
-Accept-Encoding: gzip, deflate\r\n
-Accept-Language: ja,en-US;q=0.8,en;q=0.6\r\n
+Host: wa3.i-3-i.info
+Connection: keep-alive
+Content-Length: 38
+Cache-Control: max-age=0
+Origin: http://wa3.i-3-i.info
+Upgrade-Insecure-Requests: 1
+User-Agent: うんちゃら
+Content-Type: application/x-www-form-urlencoded
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Referer: http://wa3.i-3-i.info/index.html
+Accept-Encoding: gzip, deflate
+Accept-Language: ja,en-US;q=0.8,en;q=0.6
 ~~~
 
 ### リクエストボディ
@@ -95,7 +95,7 @@ HTTPでサーバからクライアントから応答を伝えるメッセージ�
 HTTPステータスコードや要求されたファイルの内容などで構成される。
 - ステータス行（ステータスコード）
 ~~~ ステータス行
-HTTP/1.1 200 OK\r\n
+HTTP/1.1 200 OK
 ~~~
 
 - ヘッダー
@@ -105,11 +105,11 @@ HTTP/1.1 200 OK\r\n
 HTTPレスポンスにおいて、ステータスライン(ステータスコードなどが記述される部分)に書ききれないレスポンス情報が記述される部分
 - フィールド名:内容
 ~~~ レスポンスヘッダー
-Server: nginx\r\n
-Date: Tue, 11 Jul 2017 09:23:07 GMT\r\n
-Content-Type: text/html\r\n
-Transfer-Encoding: chunked\r\n
-Connection: keep-alive\r\n
+Server: nginx
+Date: Tue, 11 Jul 2017 09:23:07 GMT
+Content-Type: text/html
+Transfer-Encoding: chunked
+Connection: keep-alive
 ~~~
 
 ### レスポンスボディ
